@@ -11,15 +11,15 @@
       </tr>
       <tr>
         <th>Start time:</th>
-        <td><%= task.start_time %></td>
+        <td><%= l task.start_time, format: :long %></td>
       </tr>
       <tr>
         <th>End time:</th>
-        <td><%= task.end_time %></td>
+        <td><%= l task.end_time, format: :long if task.end_time.present? %></td>
       </tr>
       <tr>
         <th>Status:</th>
-        <td><%= task.status %></td>
+        <td><%= task.status_i18n %></td>
       </tr>
     </table>
   </div>
