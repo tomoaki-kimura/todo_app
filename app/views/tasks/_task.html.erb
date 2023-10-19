@@ -1,27 +1,8 @@
-<div class="row">
-  <div class="col-md-8">
-    <table id="<%= dom_id task %>" class="table table-bordered">
-      <tr>
-        <th><%= t "activerecord.attributes.task.title" %></th>
-        <td><%= link_to_if params[:action] == "index", task.title, task %></td>
-      </tr>
-      <tr>
-        <th><%= t "activerecord.attributes.task.description" %></th>
-        <td><%= task.description %></td>
-      </tr>
-      <tr>
-        <th><%= t "activerecord.attributes.task.start_time" %></th>
-        <td><%= l task.start_time, format: :long %></td>
-      </tr>
-      <tr>
-        <th><%= t "activerecord.attributes.task.end_time" %></th>
-        <td><%= l task.end_time, format: :long if task.end_time.present? %></td>
-      </tr>
-      <tr>
-        <th><%= t "activerecord.attributes.task.status" %></th>
-        <td><%= task.status_i18n %></td>
-      </tr>
-    </table>
-  </div>
-</div>
+<tr>
+  <td><%= task.title %></td>
+  <td><%= l task.start_time, format: :long %></td>
+  <td><%= l task.end_time, format: :long if task.end_time.present? %></td>
+  <td><%= link_to task.status_i18n, task_path(task), class: "btn #{colord_button(task)}" %></td>
+</tr>
+
 

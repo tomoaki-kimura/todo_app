@@ -7,6 +7,8 @@ class Task < ApplicationRecord
 
   enum status: { not_started: 0, in_progress: 1, closed: 2 }
 
+  belongs_to :user
+
   private
 
   def start_time_is_now_or_later

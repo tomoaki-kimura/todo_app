@@ -1,9 +1,18 @@
 <h1><%= t "activerecord.models.task" %>リスト</h1>
 
-<div id="tasks">
-  <% @tasks.each do |task| %>
-    <%= render task %>
-  <% end %>
+<div class="row">
+  <div class="col-md-8">
+    <table class="table table-bordered table-striped">
+      <tr>
+        <th><%= t "activerecord.attributes.task.title" %></th>
+        <th><%= t "activerecord.attributes.task.start_time" %></th>
+        <th><%= t "activerecord.attributes.task.end_time" %></th>
+        <th><%= t "activerecord.attributes.task.status" %></th>
+      </tr>
+      <%= render @tasks %>
+    </table>
+  </div>
 </div>
+
 
 <%= link_to "新規#{ t "activerecord.models.task"}の作成", new_task_path, class: "btn btn-primary me-2" %>

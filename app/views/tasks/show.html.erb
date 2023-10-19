@@ -1,6 +1,31 @@
 <h1><%= t "activerecord.models.task" %>詳細</h1>
 
-<%= render @task %>
+<div class="row">
+  <div class="col-md-8">
+    <table class="table table-bordered">
+      <tr>
+        <th><%= t "activerecord.attributes.task.title" %></th>
+        <td><%= link_to_if params[:action] == "index", @task.title, @task %></td>
+      </tr>
+      <tr>
+        <th><%= t "activerecord.attributes.task.description" %></th>
+        <td><%= @task.description %></td>
+      </tr>
+      <tr>
+        <th><%= t "activerecord.attributes.task.start_time" %></th>
+        <td><%= l @task.start_time, format: :long %></td>
+      </tr>
+      <tr>
+        <th><%= t "activerecord.attributes.task.end_time" %></th>
+        <td><%= l @task.end_time, format: :long if @task.end_time.present? %></td>
+      </tr>
+      <tr>
+        <th><%= t "activerecord.attributes.task.status" %></th>
+        <td><span class="btn <%= colord_button(@task) %>"><%= @task.status_i18n %></span></td>
+      </tr>
+    </table>
+  </div>
+</div>
 
 <div class="d-flex">
   <%= link_to "この#{ t "activerecord.models.task" }を編集", edit_task_path(@task), class: "btn btn-warning me-2" %>
