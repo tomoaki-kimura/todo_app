@@ -9,11 +9,16 @@
         <th><%= t "activerecord.attributes.task.end_time" %></th>
         <th><%= t "activerecord.attributes.task.status" %></th>
       </tr>
-      <%= render @tasks %>
+      <%= render @paginate_tasks %>
     </table>
-    <%= paginate @tasks, theme: "bootstrap-5" %>
+    <%= paginate @paginate_tasks, theme: "bootstrap-5" %>
+  </div>
+  <div class="col-md-4">
+    <%= render "callender", tasks: @tasks %>
   </div>
 </div>
 
 
 <%= link_to "新規#{ t "activerecord.models.task"}の作成", new_task_path, class: "btn btn-primary me-2" %>
+
+

@@ -4,11 +4,13 @@ class TasksController < ApplicationController
 
   # GET /tasks or /tasks.json
   def index
-    @tasks = current_user.tasks.page(params[:page]).per(15)
+    @tasks = current_user.tasks
+    @paginate_tasks = @tasks.page(params[:page]).per(15)
   end
 
   # GET /tasks/1 or /tasks/1.json
   def show
+    @tasks = current_user.tasks
   end
 
   # GET /tasks/new

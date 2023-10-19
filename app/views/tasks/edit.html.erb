@@ -20,6 +20,7 @@
         <td><%= l @task.end_time, format: :long if @task.end_time.present? %></td>
       </tr>
     </table>
+
   </div>
 </div>
 <%= render "form", task: @task %>
